@@ -23,5 +23,10 @@ class KrsMahasiswaController extends \yii\web\Controller
     {
         return $this->render('delete');
     }
-    
+
+    public function actionFotoProfile()
+    {
+        return $this->render('fotoprofile');
+    }
+
 }
