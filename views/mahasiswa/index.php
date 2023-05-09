@@ -1,9 +1,16 @@
 <?php
+use yii\helpers\Html;
+use yii\widgets\LinkPager;
 /** @var yii\web\View $this */
 ?>
-<h1>mahasiswa/index</h1>
+<h1>mahasiswa</h1>
+<ul>
+<?php foreach ($countries as $mahasiswa): ?>
+    <li>
+        <?= Html::encode("{$mahasiswa->nama} ({$mahasiswa->nim})") ?>:
+        <?= $mahasiswa->population ?>
+    </li>
+<?php endforeach; ?>
+</ul>
 
-<p>
-    You may change the content of this page by modifying
-    the file <code><?= __FILE__; ?></code>.
-</p>
+<?= LinkPager::widget(['pagination'=> $pagination]) ?>
