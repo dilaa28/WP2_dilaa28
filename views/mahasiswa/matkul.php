@@ -7,9 +7,8 @@ GridView::widget([
     'dataProvider' => $dataProvider,
     'columns' => [
     'id',
-    'nim',
-    'nama',
-    'kelas'
+    'kode_mk',
+    'nama_mk'
     ]
 ])
 ?>

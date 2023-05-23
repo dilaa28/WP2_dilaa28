@@ -1,8 +1,11 @@
 <?php
 
 namespace app\controllers;
-use yii\data\Pagination;
+use yii\data\ActiveDataProvider;
 use app\models\Mahasiswa;
+use app\models\mata_kuliah;
+use app\models\MataKuliah;
+use yii\debug\models\timeline\DataProvider;
 
 class MahasiswaController extends \yii\web\Controller
 {
@@ -12,25 +15,29 @@ class MahasiswaController extends \yii\web\Controller
 
         $query = Mahasiswa::find();
 
-        $pagination = new Pagination([
-            'defaultPageSize' => 5,
-            'totalCount' => $query->count(),
+        $dataProvider = new ActiveDataProvider(['query'=> $query]);
+            return $this->render('index', [
+                'dataProvider'=> $dataProvider
         ]);
-
-        $countries = $query->orderBy('nama')
-            ->offset($pagination->offset)
-            ->limit($pagination->limit)
-            ->all();
-
-        return $this->render('index', [
-            'countries' => $countries,
-            'pagination' => $pagination,
-        ]);
+        
     }
 
     public function actionProfil()
     {
         return $this->render('profil');
+    }
+
+    public function actionMatkul()
+    {
+        // return $this->render('index');
+
+        $query = MataKuliah::find();
+
+        $dataProvider = new ActiveDataProvider(['query'=> $query]);
+            return $this->render('matkul', [
+                'dataProvider'=> $dataProvider
+        ]);
+        
     }
 
 }
