@@ -3,9 +3,8 @@
 namespace app\controllers;
 use yii\data\ActiveDataProvider;
 use app\models\Mahasiswa;
-use app\models\mata_kuliah;
 use app\models\MataKuliah;
-use yii\debug\models\timeline\DataProvider;
+
 
 class MahasiswaController extends \yii\web\Controller
 {
